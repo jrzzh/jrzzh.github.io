@@ -1,0 +1,326 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>实验一-薛韩滨-25050537 | 18小组的blog</title><meta name="author" content="18小组"><meta name="copyright" content="18小组"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="《软件开发工具实践》实验报告 实验名称：Web软件开发环境 一、实验目的  掌握Web软件开发环境的整体搭建流程，理解开发环境各组件的作用与关系。 熟悉Linux操作系统下开发环境的基本配置方法，包括语言环境、包管理器和关键软件包的安装与使用。 学会使用包管理器（如apt、pip、npm）安装、更新和管理软件依赖。 掌握代码编辑器（VS Code）的安装、配置与插件扩展方法，能够进行基本的Web应">
+<meta property="og:type" content="article">
+<meta property="og:title" content="实验一-薛韩滨-25050537">
+<meta property="og:url" content="http://example.com/2026/07/11/%E5%AE%9E%E9%AA%8C%E4%BA%8C-%E8%96%9B%E9%9F%A9%E6%BB%A8-25050537/index.html">
+<meta property="og:site_name" content="18小组的blog">
+<meta property="og:description" content="《软件开发工具实践》实验报告 实验名称：Web软件开发环境 一、实验目的  掌握Web软件开发环境的整体搭建流程，理解开发环境各组件的作用与关系。 熟悉Linux操作系统下开发环境的基本配置方法，包括语言环境、包管理器和关键软件包的安装与使用。 学会使用包管理器（如apt、pip、npm）安装、更新和管理软件依赖。 掌握代码编辑器（VS Code）的安装、配置与插件扩展方法，能够进行基本的Web应">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/butterfly-icon.png">
+<meta property="article:published_time" content="2026-07-11T06:16:56.000Z">
+<meta property="article:modified_time" content="2026-07-11T07:35:27.287Z">
+<meta property="article:author" content="18小组">
+<meta property="article:tag" content="博客,个人博客,技术个人博客">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/butterfly-icon.png"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "实验一-薛韩滨-25050537",
+  "url": "http://example.com/2026/07/11/%E5%AE%9E%E9%AA%8C%E4%BA%8C-%E8%96%9B%E9%9F%A9%E6%BB%A8-25050537/",
+  "image": "http://example.com/img/butterfly-icon.png",
+  "datePublished": "2026-07-11T06:16:56.000Z",
+  "dateModified": "2026-07-11T07:35:27.287Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "18小组",
+      "url": "http://example.com"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/2026/07/11/%E5%AE%9E%E9%AA%8C%E4%BA%8C-%E8%96%9B%E9%9F%A9%E6%BB%A8-25050537/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=5.5.5"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.13.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '实验一-薛韩滨-25050537',
+  isHighlightShrink: false,
+  isToc: false,
+  pageType: 'post'
+}</script><meta name="generator" content="Hexo 8.1.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/butterfly-icon.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">6</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-color: #F5F5F0;"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">18小组的blog</span></a><a class="nav-page-title" href="/"><span class="site-name">实验一-薛韩滨-25050537</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">实验一-薛韩滨-25050537</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2026-07-11T06:16:56.000Z" title="发表于 2026-07-11 14:16:56">2026-07-11</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-07-11T07:35:27.287Z" title="更新于 2026-07-11 15:35:27">2026-07-11</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><p>《软件开发工具实践》实验报告</p>
+<p>实验名称：Web软件开发环境</p>
+<p>一、实验目的</p>
+<ol>
+<li>掌握Web软件开发环境的整体搭建流程，理解开发环境各组件的作用与关系。</li>
+<li>熟悉Linux操作系统下开发环境的基本配置方法，包括语言环境、包管理器和关键软件包的安装与使用。</li>
+<li>学会使用包管理器（如apt、pip、npm）安装、更新和管理软件依赖。</li>
+<li>掌握代码编辑器（VS Code）的安装、配置与插件扩展方法，能够进行基本的Web应用开发与调试。</li>
+</ol>
+<hr>
+<p>二、实验环境</p>
+<p>项目 规格&#x2F;版本<br>操作系统 Ubuntu 22.04 LTS（虚拟机环境）<br>内核版本 Linux 5.15.0-xx-generic<br>包管理器 apt（系统级）、pip3（Python）、npm（Node.js）<br>代码编辑器 Visual Studio Code 1.80+<br>浏览器 Microsoft Edge &#x2F; Google Chrome<br>硬件配置 4核CPU &#x2F; 8GB内存 &#x2F; 50GB硬盘</p>
+<hr>
+<p>三、实验过程</p>
+<p>3.1 系统语言包（Locale）配置</p>
+<p>在搭建Web开发环境前，首先配置系统的语言环境，确保终端和编辑器的中文显示与输入正常。</p>
+<p>（1）查看当前语言设置</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">locale</span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$LANG</span></span><br></pre></td></tr></table></figure>
+
+<p>（2）安装中文语言包</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt update</span><br><span class="line"><span class="built_in">sudo</span> apt install language-pack-zh-hans language-pack-zh-hans-base</span><br></pre></td></tr></table></figure>
+
+<p>（3）配置系统语言</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> locale-gen zh_CN.UTF-8</span><br><span class="line"><span class="built_in">sudo</span> update-locale LANG=zh_CN.UTF-8</span><br></pre></td></tr></table></figure>
+
+<p>（4）使配置生效</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> /etc/default/locale</span><br></pre></td></tr></table></figure>
+
+<p>配置完成后，终端可正常显示中文，为后续开发工具的中文界面支持奠定基础。</p>
+<hr>
+<p>3.2 包管理器使用</p>
+<p>3.2.1 apt——系统级包管理器</p>
+<p>apt是Ubuntu系统的核心包管理器，用于安装、更新和卸载系统级软件包。</p>
+<p>更新软件源列表：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt update</span><br></pre></td></tr></table></figure>
+
+<p>升级已安装的软件包：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt upgrade -y</span><br></pre></td></tr></table></figure>
+
+<p>安装常用开发工具：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt install -y build-essential curl wget git vim net-tools</span><br></pre></td></tr></table></figure>
+
+<p>3.2.2 pip3——Python包管理器</p>
+<p>pip是Python的包管理工具，用于安装和管理Python第三方库。</p>
+<p>确认pip3已安装：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip3 --version</span><br></pre></td></tr></table></figure>
+
+<p>安装Web开发相关Python包：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip3 install flask flask-cors requests beautifulsoup4</span><br></pre></td></tr></table></figure>
+
+<p>查看已安装的Python包：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip3 list</span><br></pre></td></tr></table></figure>
+
+<p>3.2.3 npm——Node.js包管理器</p>
+<p>npm是Node.js的包管理器，集成了Node.js安装包中。</p>
+<p>确认npm已安装：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm --version</span><br></pre></td></tr></table></figure>
+
+<p>全局安装常用Web开发工具：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> npm install -g http-server nodemon</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>3.3 关键软件包安装</p>
+<p>3.3.1 Node.js与npm</p>
+<p>Node.js是JavaScript运行时环境，是Web前端及全栈开发的核心工具。</p>
+<p>通过NodeSource安装最新版Node.js：<img src="/2026/07/11/%E5%AE%9E%E9%AA%8C%E4%BA%8C-%E8%96%9B%E9%9F%A9%E6%BB%A8-25050537/img1.png" alt="alt text"></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl -fsSL https://deb.nodesource.com/setup_18.x | <span class="built_in">sudo</span> -E bash -</span><br><span class="line"><span class="built_in">sudo</span> apt install -y nodejs</span><br></pre></td></tr></table></figure>
+
+<p>3.3.2 Python3与pip</p>
+<p>Python是Web后端开发常用的编程语言。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt install -y python3 python3-pip python3-venv</span><br><span class="line">python3 --version</span><br></pre></td></tr></table></figure>
+
+<p>3.3.3 Git版本控制系统</p>
+<p>Git用于代码的版本管理和协作开发。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt install -y git</span><br><span class="line">git --version</span><br></pre></td></tr></table></figure>
+
+<p>配置Git用户信息：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name <span class="string">&quot;Your Name&quot;</span></span><br><span class="line">git config --global user.email <span class="string">&quot;your_email@example.com&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>3.3.4 数据库（MySQL）</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt install -y mysql-server</span><br><span class="line"><span class="built_in">sudo</span> systemctl start mysql</span><br><span class="line"><span class="built_in">sudo</span> systemctl <span class="built_in">enable</span> mysql</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>3.4 Visual Studio Code安装与配置</p>
+<p>VS Code是轻量级且功能强大的代码编辑器，拥有广泛的插件支持。</p>
+<p>（1）下载并安装VS Code<img src="/2026/07/11/%E5%AE%9E%E9%AA%8C%E4%BA%8C-%E8%96%9B%E9%9F%A9%E6%BB%A8-25050537/img2.png" alt="alt text"></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor &gt; packages.microsoft.gpg</span><br><span class="line"><span class="built_in">sudo</span> install -D -o root -g root -m 644 packages.microsoft.gpg /etc/apt/keyrings/packages.microsoft.gpg</span><br><span class="line"><span class="built_in">sudo</span> sh -c <span class="string">&#x27;echo &quot;deb [arch=amd64,arm64,armhf signed-by=/etc/apt/keyrings/packages.microsoft.gpg] https://packages.microsoft.com/repos/code stable main&quot; &gt; /etc/apt/sources.list.d/vscode.list&#x27;</span></span><br><span class="line"><span class="built_in">rm</span> -f packages.microsoft.gpg</span><br><span class="line"><span class="built_in">sudo</span> apt update</span><br><span class="line"><span class="built_in">sudo</span> apt install -y code</span><br></pre></td></tr></table></figure>
+
+<p>（2）安装VS Code中文语言包</p>
+<p>打开VS Code后，在扩展商店（Ctrl+Shift+X）中搜索“Chinese (Simplified) Language Pack”并安装，重启后界面即切换为中文。</p>
+<p>（3）安装Web开发常用插件<img src="/2026/07/11/%E5%AE%9E%E9%AA%8C%E4%BA%8C-%E8%96%9B%E9%9F%A9%E6%BB%A8-25050537/img3.png" alt="alt text"></p>
+<p>插件名称 用途<br>Chinese (Simplified) Language Pack VS Code中文界面语言包<br>Prettier 代码格式化工具<br>ESLint JavaScript代码检查<br>Live Server 本地Web服务器实时预览<br>Python Python语言支持（调试、智能提示）<br>HTML CSS Support HTML&#x2F;CSS智能提示<br>JavaScript (ES6) code snippets ES6代码片段</p>
+<p>安装命令（命令行方式）：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">code --install-extension ms-ceintl.vscode-language-pack-zh-hans</span><br><span class="line">code --install-extension esbenp.prettier-vscode</span><br><span class="line">code --install-extension ms-python.python</span><br><span class="line">code --install-extension ritwickdey.liveserver</span><br></pre></td></tr></table></figure>
+
+<p>（4）配置VS Code用户设置</p>
+<p><img src="/2026/07/11/%E5%AE%9E%E9%AA%8C%E4%BA%8C-%E8%96%9B%E9%9F%A9%E6%BB%A8-25050537/img4.png" alt="alt text"></p>
+<hr>
+<p>四、实验结果</p>
+<p>4.1 环境验证</p>
+<p>（1）验证各软件版本</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看各工具版本</span></span><br><span class="line">node -v &amp;&amp; npm -v &amp;&amp; python3 -v &amp;&amp; git -v &amp;&amp; code -v</span><br></pre></td></tr></table></figure>
+
+
+<p>4.2 环境信息汇总</p>
+<p>组件 版本 安装方式<br>Ubuntu 22.04 LTS 虚拟机预装<br>Node.js v18.x.x apt（NodeSource源）<br>npm 9.x.x 随Node.js安装<br>Python3 3.10.x apt<br>pip3 22.x.x 随Python3安装<br>Git 2.34.x apt<br>VS Code 1.80+ apt（Microsoft源）<br>MySQL 8.0.x apt</p>
+<hr>
+<p>五、知识总结</p>
+<p>5.1 包管理器的作用</p>
+<p>包管理器是软件开发中不可或缺的工具，它能自动完成软件包的下载、安装和依赖管理。本实验中接触了三种包管理器：</p>
+<p>· apt：Ubuntu系统级包管理器，管理系统全局软件包<br>· pip3：Python包管理器，管理Python第三方库<br>· npm：Node.js包管理器，管理JavaScript&#x2F;Node.js项目依赖</p>
+<p>5.2 Web开发环境的核心组成</p>
+<p>一个完整的Web软件开发环境通常包括：</p>
+<ol>
+<li>操作系统：提供运行基础（本实验使用Ubuntu）</li>
+<li>运行时环境：如Node.js、Python等</li>
+<li>包管理器：管理项目依赖</li>
+<li>代码编辑器&#x2F;IDE：编写和调试代码</li>
+<li>版本控制系统：如Git</li>
+<li>数据库：数据持久化存储</li>
+<li>Web服务器：部署和运行Web应用</li>
+</ol>
+<p>5.3 语言包（Locale）配置要点</p>
+<p>Linux系统的语言环境通过locale机制管理。配置中文语言包需要：</p>
+<ol>
+<li>安装对应的language-pack</li>
+<li>使用locale-gen生成语言文件</li>
+<li>通过update-locale更新系统默认语言</li>
+<li>重启终端或source配置文件使更改生效</li>
+</ol>
+<hr>
+<p>六、出现问题及解决方案</p>
+<p>问题1：apt update时出现签名验证失败</p>
+<p>现象：执行sudo apt update时提示“GPG error”或“签名无效”。</p>
+<p>原因：软件源的GPG公钥过期或未正确导入。</p>
+<p>解决方案：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 重新导入缺失的公钥（以Microsoft源为例）</span></span><br><span class="line">wget -qO- https://packages.microsoft.com/keys/microsoft.asc | <span class="built_in">sudo</span> apt-key add -</span><br><span class="line"><span class="built_in">sudo</span> apt update</span><br></pre></td></tr></table></figure>
+
+<p>问题2：VS Code中文语言包安装后未生效<img src="/2026/07/11/%E5%AE%9E%E9%AA%8C%E4%BA%8C-%E8%96%9B%E9%9F%A9%E6%BB%A8-25050537/img5.png" alt="alt text"></p>
+<p>现象：安装Chinese Language Pack后界面仍为英文。</p>
+<p>原因：未切换显示语言或需要重启。</p>
+<p>解决方案：</p>
+<ol>
+<li>按Ctrl+Shift+P打开命令面板</li>
+<li>输入“Configure Display Language”</li>
+<li>选择“zh-cn”</li>
+<li>重启VS Code</li>
+</ol>
+<p>问题3：npm install权限不足<img src="/2026/07/11/%E5%AE%9E%E9%AA%8C%E4%BA%8C-%E8%96%9B%E9%9F%A9%E6%BB%A8-25050537/img6.png" alt="alt text"></p>
+<p>现象：执行npm install -g时提示“EACCES: permission denied”。</p>
+<p>原因：全局安装需要管理员权限。</p>
+<p>解决方案：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 方法：修改npm默认目录</span></span><br><span class="line"><span class="built_in">mkdir</span> ~/.npm-global</span><br><span class="line">npm config <span class="built_in">set</span> prefix <span class="string">&#x27;~/.npm-global&#x27;</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;export PATH=~/.npm-global/bin:$PATH&#x27;</span> &gt;&gt; ~/.bashrc</span><br><span class="line"><span class="built_in">source</span> ~/.bashrc</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>七、心得总结</p>
+<p>通过本次实验，我系统性地完成了Web软件开发环境的搭建，从操作系统的基础配置到各类开发工具的安装与调试，对整个开发工具链有了更加清晰的认识。</p>
+<p>几点体会：</p>
+<ol>
+<li>包管理器是开发效率的基石。无论是apt、pip还是npm，它们都极大地简化了软件安装和依赖管理的复杂度。熟练掌握包管理器的基本命令，是每个开发者的必备技能。</li>
+<li>环境配置的规范性很重要。在配置语言包、环境变量、VS Code设置时，规范的配置不仅能够避免后续开发中的诸多问题，也便于环境的迁移和复现。</li>
+<li>遇到问题是学习的最好机会。在实验中遇到的GPG密钥问题、权限问题等，促使我深入理解了包管理器的认证机制和Linux的文件权限模型，这些经验比顺利完成实验本身更有价值。</li>
+<li>Web开发环境的搭建是后续学习的基础。一个稳定、完整的开发环境是进行Web前端、后端及全栈开发的必要前提，本次实验为后续的Web开发课程和项目实践打下了坚实的基础。</li>
+</ol>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://example.com">18小组</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2026/07/11/%E5%AE%9E%E9%AA%8C%E4%BA%8C-%E8%96%9B%E9%9F%A9%E6%BB%A8-25050537/">http://example.com/2026/07/11/%E5%AE%9E%E9%AA%8C%E4%BA%8C-%E8%96%9B%E9%9F%A9%E6%BB%A8-25050537/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="http://example.com" target="_blank">18小组的blog</a>！</span></div></div><div class="tag_share"><div class="post-share"><div class="social-share" data-image="/img/butterfly-icon.png" data-sites="facebook,x,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related full-width" href="/2026/07/11/%E5%AE%9E%E9%AA%8C%E4%BA%8C-%E4%BD%95%E7%BF%94-25050538/" title="实验二-何翔-25050538"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">实验二-何翔-25050538</div></div><div class="info-2"><div class="info-item-1">实验报告：代码编辑与管理   实验名称 代码编辑与管理    实验日期 2026年7月11日   姓  名 （何翔）   学  号 （25050538）   1. 实验目的本次实验旨在安装并配置 Visual Studio Code 编辑器，掌握 Markdown 语法及实时渲染预览方法；同时学习 Git 版本管理工具的基本操作，包括本地仓库管理、分支操作及与远程仓库（GitHub）的同步，为后续软件开发中的文档编写和代码版本控制打下基础。 2. 实验环境   项目 内容    操作系统 Windows 11   代码编辑器 Visual Studio Code   版本管理工具 Git 2.55.0   远程仓库平台 GitHub   终端环境 PowerShell    3. 实验过程步骤一：安装与配置 Git 环境在终端中执行 git --version 确认 Git 已安装，并使用 git config --global 配置了用户名（xiang）和邮箱（3170585301@qq.com），然后通过 git config --global --list 验证配置是否生效...</div></div></div></a></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/butterfly-icon.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">18小组</div><div class="author-info-description">欢迎来到我的博客</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">6</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/jrzzh"><i class="fab fa-github"></i><span>我的Github</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/jrzzh" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:15727911107@163.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/07/11/%E5%AE%9E%E9%AA%8C%E5%85%ABWeb%E8%BD%AF%E4%BB%B6%E9%83%A8%E7%BD%B2/" title="实验八-朱展宏-25050530">实验八-朱展宏-25050530</a><time datetime="2026-07-11T06:37:58.000Z" title="发表于 2026-07-11 14:37:58">2026-07-11</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/07/11/%E5%AE%9E%E9%AA%8C7%E8%BF%9C%E7%A8%8B%E7%AE%A1%E7%90%86%E9%85%8D%E7%BD%AE/" title="实验七-朱雨航-25050516">实验七-朱雨航-25050516</a><time datetime="2026-07-11T06:36:56.000Z" title="发表于 2026-07-11 14:36:56">2026-07-11</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/07/11/%E5%AE%9E%E9%AA%8C%E5%85%AD-%E5%90%B4%E6%99%A8%E6%80%BF-25050525/" title="实验六-吴晨怿-25050525">实验六-吴晨怿-25050525</a><time datetime="2026-07-11T06:28:02.000Z" title="发表于 2026-07-11 14:28:02">2026-07-11</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/07/11/%E5%AE%9E%E9%AA%8C%E4%BA%94-%E5%90%B4%E6%99%A8%E6%80%BF-25050525/" title="实验五-吴晨怿-25050525">实验五-吴晨怿-25050525</a><time datetime="2026-07-11T06:26:41.000Z" title="发表于 2026-07-11 14:26:41">2026-07-11</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/07/11/%E5%AE%9E%E9%AA%8C%E4%BA%8C-%E4%BD%95%E7%BF%94-25050538/" title="实验二-何翔-25050538">实验二-何翔-25050538</a><time datetime="2026-07-11T06:18:45.000Z" title="发表于 2026-07-11 14:18:45">2026-07-11</time></div></div></div></div></div></div></main><footer id="footer" style="background: grey;"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2025 - 2026 By 18小组</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 8.1.2</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.5.5</a></span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.5"></script><script src="/js/main.js?v=5.5.5"></script><div class="js-pjax"></div><script src="/js/snowflake.js"></script><script src="https://cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
